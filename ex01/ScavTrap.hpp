@@ -6,9 +6,12 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 14:01:38 by taha              #+#    #+#             */
-/*   Updated: 2025/02/08 16:06:09 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/08 18:34:04 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 #include "ClapTrap.hpp"
 
@@ -26,3 +29,5 @@ public:
 	void guardGate();
 
 };
+
+#endif
