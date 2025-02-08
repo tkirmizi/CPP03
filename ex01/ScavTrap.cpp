@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 14:02:47 by taha              #+#    #+#             */
-/*   Updated: 2025/02/08 15:43:05 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/08 16:09:18 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,26 @@ void ScavTrap::attack(const std::string& target){
 		std::cout << "ScavTrap " << getName() << " has no energy to attack"  << std::endl;
 		return;
 	}
-	setEnergy(getEnergy() - 1);
 	ClapTrap::attack(target);
 }
 
 void ScavTrap::guardGate(){
 	std::cout << "ScavTrap " << getName() << " is now in Gate keeper mode" << std::endl;
+}
+
+void ScavTrap::beRepaired(unsigned int amount){
+	if (getEnergy() <= 0)
+	{
+		std::cout << "ScavTrap " << getName() << " has no energy to repair"  << std::endl;
+		return;
+	}
+	ClapTrap::beRepaired(amount);
+}
+void ScavTrap::takeDamage(unsigned int amount){
+	if (getEnergy() <= 0)
+	{
+		std::cout << "ScavTrap " << getName() << " has no energy to take damage"  << std::endl;
+		return;
+	}
+	ClapTrap::takeDamage(amount);
 }
