@@ -6,49 +6,27 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:05:48 by taha              #+#    #+#             */
-/*   Updated: 2025/02/07 18:01:09 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/08 12:35:00 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
-#include <cstdlib>
+
 /*
 dont forget to ortodox canonical class
 */
 
 
-class ClapTrap{
-	private:
-		std::string	_name;
-		int			_hit;	// health
-		int			_energy;
-		int			_attack;
-	public:
-		ClapTrap();
-		ClapTrap(std::string name);
-		~ClapTrap();
-		ClapTrap(const ClapTrap& other);
-		ClapTrap& operator=(const ClapTrap &other);
-		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
-		std::string&	getName(void){return _name;}
-		int&			getHit(void){return _hit;}
-		int&			getEnergy(void){return _energy;}
-		int&			getAttack(void){return _attack;}
-		
-};
+
 
 ClapTrap::ClapTrap()
 	: _name("Default"), _hit(10), _energy(10), _attack(0)
 	{std::cout << "Default Constructor called" << std::endl;};
 
 ClapTrap::ClapTrap(const ClapTrap& other)
-	: _name(other._name), _hit(other._hit),_energy(other._energy), _attack(other._attack)
-	{std::cout << "copy constructor worked for " << _name << std::endl;}
+	: _name(other._name), _hit(other._hit), _energy(other._energy), _attack(other._attack)
+	{std::cout << "copy constructor worked" <<  std::endl;}
 
-ClapTrap::ClapTrap(std::string name): _name(name), _hit(10), _energy(0), _attack(10){std::cout << "Constructor called" << std::endl;};
+ClapTrap::ClapTrap(std::string name): _name(name), _hit(10), _energy(10), _attack(0){std::cout << "Constructor called" << std::endl;};
 ClapTrap::~ClapTrap(){std::cout << "Destructor called" << std::endl;}
 
 
@@ -60,7 +38,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &other){
 				_energy = other._energy;
 				_attack = other._attack;
 			}
-			std::cout << "copy operator assgn worked\n";
+			std::cout << "copy assignment operator worked\n";
 			return *this;
 		}
 
@@ -75,7 +53,7 @@ void ClapTrap::attack(const std::string& target){
 	}
 	_energy -= 1;
 	std::cout
-	<< "ClapTrap" << _name << " attacks " << target
+	<< "ClapTrap " << _name << " attacks " << target
 	<< ", causing " << _attack << " points of damage!" <<
 	std::endl;
 }
@@ -89,6 +67,9 @@ void ClapTrap::takeDamage(unsigned int amount){
 		return;
 	}
 	_hit -= amount;
+	std::cout
+	<< "ClapTrap " << _name << " took damage, causing " << amount << " points of damage!" <<
+	std::endl;
 	if (_hit <= 0 || _energy <= 0)
 	{
 		std::cout
@@ -108,14 +89,41 @@ void ClapTrap::beRepaired(unsigned int amount){
 	_energy -= 1;
 	_hit += amount;
 	std::cout
-	<< "ClapTrap" << _name << "repaired " << amount
-	<< " amount, new health is" << _hit <<
-	std::endl;
+	<< "ClapTrap " << _name << " repaired " << amount << " amount of health!"
+	<< std::endl;
 }
 
+void objShow(ClapTrap &obj){
+	std::cout
+	<< std::setw(10) << std::right << obj.getName() << "|"
+	<< std::setw(10) << std::right << obj.getHit() << "|"
+	<< std::setw(10) << std::right << obj.getEnergy() << "|"
+	<< std::setw(10) << std::right << obj.getAttack() << "|"
+	<< std::endl;
+}
 
 int main(){
-	ClapTrap baz("taha");
-	ClapTrap foo(baz); // copy constructor should call
-
+	ClapTrap obj1 ("taha");
+	ClapTrap obj2 = obj1;
+	ClapTrap obj3;
+	obj3 = obj2;
+	std::cout
+	<< std::setw(10) << std::right << "Name" << "|"
+	<< std::setw(10) << std::right << "Health" << "|"
+	<< std::setw(10) << std::right << "Energy" << "|"
+	<< std::setw(10) << std::right << "Attack" << "|"
+	<< std::endl;
+	objShow(obj1);
+	objShow(obj2);
+	objShow(obj3);
+	std::cout << std::endl;
+	obj1.attack("enemy");
+	objShow(obj1);
+	std::cout << std::endl;
+	obj2.takeDamage(5);
+	objShow(obj2);
+	std::cout << std::endl;
+	obj3.beRepaired(5);
+	objShow(obj3);
 }
+
