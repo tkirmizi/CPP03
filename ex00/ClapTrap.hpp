@@ -6,7 +6,7 @@
 /*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 12:34:41 by taha              #+#    #+#             */
-/*   Updated: 2025/02/10 12:31:01 by tkirmizi         ###   ########.fr       */
+/*   Updated: 2025/02/10 16:19:38 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 class ClapTrap{
 	private:
 		std::string	_name;
-		int			_hit;
-		int			_energy;
-		int			_attack;
+		int			_hitPoints;
+		int			_energyPoints;
+		int			_attackPoints;
 	public:
 		ClapTrap(); // Constructron
 		ClapTrap(std::string name); // Constructton

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:05:48 by taha              #+#    #+#             */
-/*   Updated: 2025/02/08 19:11:45 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/10 16:15:28 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int main()
 	std::cout << std::endl;
 
 	ScavTrap scav("Guardian");
+	ScavTrap scav2;
 	FragTrap frag("Warrior");
 
 	std::cout << "\n=== INITIAL VALUES TEST ===" << std::endl;
@@ -49,8 +50,8 @@ int main()
 	std::cout << "Attack: " << frag.getAttack() << std::endl;  
 
 	std::cout << "\n=== SPECIAL ABILITIES TEST ===" << std::endl;
-	scav.guardGate();  // ScavTrap özel yeteneği
-	frag.highFivesGuys();  // FragTrap özel yeteneği
+	scav.guardGate();
+	frag.highFivesGuys();
 
 	std::cout << "\n=== COMBAT TEST ===" << std::endl;
 	scav.attack("Enemy1");
@@ -74,8 +75,8 @@ int main()
 	FragTrap frag2(frag);
 
 	std::cout << "\n=== ASSIGNMENT OPERATOR TEST ===" << std::endl;
-	FragTrap frag3;
-	frag3 = frag2;
+	scav2 = scav;
+	frag2 = frag;
 
 	std::cout << "\n=== END OF TESTS ===" << std::endl;
 	return 0;

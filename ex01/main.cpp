@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:05:48 by taha              #+#    #+#             */
-/*   Updated: 2025/02/08 16:08:56 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/10 16:07:47 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,25 @@ static void objShow(ClapTrap &obj)
 }
 
 int main(){
-	
+	std::cout << "\n === Scavtrap and Claptrap Constructor Test ===" << std::endl;
 	ScavTrap objA ("Warrior");
+	std::cout << "\n === Scavtrap Copy Constructor Test ===" << std::endl;
 	ScavTrap objB = objA;
-	ScavTrap objC;
-	objC = objB;
+	std::cout << "\n === Scavtrap Copy Assignment Operator Test ===" << std::endl;
+	objA = objB;
+	std::cout << "\n === Objects Value's Test === " << std::endl;
 	std::cout << "      Name|Hit Points|Energy    |Attack    |" << std::endl;
 	objShow(objA);
 	objShow(objB);
-	objShow(objC);
 	std::cout << "------------------------------------------" << std::endl;
+	std::cout << "\n=== Fucntions Test ===" << std::endl;
 	objA.attack("Enemy");
 	objShow(objA);
 	std::cout << "------------------------------------------" << std::endl;
 	objB.takeDamage(15);
 	objShow(objB);
 	std::cout << "------------------------------------------" << std::endl;
-	objC.beRepaired(100);
-	objShow(objC);
-	std::cout << "------------------------------------------" << std::endl;
-	objC.guardGate();
+	std::cout << "\n===Scavtrap Gate keeper Test ===" << std::endl;
+	objA.guardGate();
+	std::cout << "\n=== Scavtrap and Claptrap Destructon Test ===" << std::endl;
 }
