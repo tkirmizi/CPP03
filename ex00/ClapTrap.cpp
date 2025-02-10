@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 12:35:46 by taha              #+#    #+#             */
-/*   Updated: 2025/02/08 14:12:41 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/10 12:30:54 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,6 @@ void ClapTrap::attack(const std::string& target){
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
-	if (_energy == 0)
-	{
-		std::cout
-		<< "ClapTrap " << _name << "has no energy to attack"
-		<< std::endl;
-		return;
-	}
 	_hit -= amount;
 	std::cout
 	<< "ClapTrap " << _name << " took damage, causing " << amount << " points of damage!" <<
@@ -93,6 +86,6 @@ void ClapTrap::beRepaired(unsigned int amount){
 
 // Getter Functions
 std::string&	ClapTrap::getName(void){return _name;}
-int&			ClapTrap::getHit(void){return _hit;}
-int&			ClapTrap::getEnergy(void){return _energy;}
-int&			ClapTrap::getAttack(void){return _attack;}
+int			ClapTrap::getHit(void) const {return _hit;}
+int			ClapTrap::getEnergy(void) const {return _energy;}
+int			ClapTrap::getAttack(void) const {return _attack;}

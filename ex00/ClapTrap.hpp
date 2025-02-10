@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 12:34:41 by taha              #+#    #+#             */
-/*   Updated: 2025/02/08 12:37:19 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/10 12:31:01 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,22 @@ class ClapTrap{
 		int			_energy;
 		int			_attack;
 	public:
-		ClapTrap();
-		ClapTrap(std::string name);
-		~ClapTrap();
-		ClapTrap(const ClapTrap& other);
-		ClapTrap& operator=(const ClapTrap &other);
-		void attack(const std::string& target);
+		ClapTrap(); // Constructron
+		ClapTrap(std::string name); // Constructton
+		~ClapTrap(); // Destructon
+		ClapTrap(const ClapTrap& other); // Copy constructron
+		ClapTrap& operator=(const ClapTrap &other); // Copy assignment operator
+
+		// Member functions
+		void attack(const std::string& target);	
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
+
+		// Getter Functions
 		std::string&	getName(void);
-		int&			getHit(void);
-		int&			getEnergy(void);
-		int&			getAttack(void);
+		int			getHit(void) const;
+		int			getEnergy(void) const;
+		int			getAttack(void) const;
 		
 };
 
